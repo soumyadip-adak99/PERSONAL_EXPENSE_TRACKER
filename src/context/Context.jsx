@@ -6,7 +6,7 @@ const initialState = {
     expenses: JSON.parse(localStorage.getItem("expenses")) || [],
     loading: false,
     error: null,
-    editingExpense: null, // Added for tracking expense being edited
+    editingExpense: null,
 };
 
 const expensesReducer = (state, action) => {
@@ -26,7 +26,7 @@ const expensesReducer = (state, action) => {
                 expenses: state.expenses.map((e) =>
                     e.id === action.payload.id ? action.payload : e
                 ),
-                editingExpense: null, // Reset editing state after update
+                editingExpense: null,
             };
 
         case "SET_EDITING_EXPENSE":
